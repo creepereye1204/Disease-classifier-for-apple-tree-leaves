@@ -15,6 +15,7 @@
 ![image](https://github.com/creepereye1204/Disease-classifier-for-apple-tree-leaves/assets/112455232/169118a2-2acf-4898-b039-02392d069439)
 ![image](https://github.com/creepereye1204/Disease-classifier-for-apple-tree-leaves/assets/112455232/52ab2a26-eb3f-462b-8c85-7576d6ab81ef)
 ![image](https://github.com/creepereye1204/Disease-classifier-for-apple-tree-leaves/assets/112455232/a717cea6-e97f-48ca-97f1-dcc2ddc3767a)
+# 데이터 합성 ex) 병든잎+정상잎은 병든잎 이고 정상잎+정상잎은 정상잎이다.
 ![image](https://github.com/creepereye1204/Disease-classifier-for-apple-tree-leaves/assets/112455232/179ffb45-46da-40a5-b96e-d91f80152613)
 ![image](https://github.com/creepereye1204/Disease-classifier-for-apple-tree-leaves/assets/112455232/e84e74f5-9077-42b6-8924-32721183174f)
 ![image](https://github.com/creepereye1204/Disease-classifier-for-apple-tree-leaves/assets/112455232/2e35d52f-22e0-4a7d-97ac-5542e7fe6c37)
