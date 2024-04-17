@@ -2,71 +2,46 @@
 사과나무 잎의 질병 분류기입니다.
 
 # result.zip에는 실행 결과가 사과나무 잎의 질병 분류기. ipynb에는 코드가 있습니다.
----
-jupyter:
-  kernelspec:
-    display_name: Python 3
-    language: python
-    name: python3
-  language_info:
-    codemirror_mode:
-      name: ipython
-      version: 3
-    file_extension: .py
-    mimetype: text/x-python
-    name: python
-    nbconvert_exporter: python
-    pygments_lexer: ipython3
-    version: 3.8.16
-  nbformat: 4
-  nbformat_minor: 4
----
-
-::: {.cell .code execution_count="2" _cell_guid="b1076dfc-b9ad-4769-8c92-a6c4dae69d19" _uuid="8f2839f25d086af736a60e9eeb907d3b93b6e0e5" execution="{\"iopub.execute_input\":\"2023-06-10T03:51:25.727275Z\",\"iopub.status.busy\":\"2023-06-10T03:51:25.726342Z\",\"iopub.status.idle\":\"2023-06-10T03:51:33.911737Z\",\"shell.execute_reply\":\"2023-06-10T03:51:33.910635Z\",\"shell.execute_reply.started\":\"2023-06-10T03:51:25.727239Z\"}" trusted="true"}
-``` python
+```python
 !pip install -U scikit-learn
 ```
 
-::: {.output .stream .stdout}
     Collecting scikit-learn
       Downloading scikit_learn-1.2.2-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (9.8 MB)
-    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 9.8/9.8 MB 50.5 MB/s eta 0:00:0000:0100:01
-    ent already satisfied: numpy>=1.17.3 in /usr/local/lib/python3.8/site-packages (from scikit-learn) (1.23.5)
+    [2K     [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m9.8/9.8 MB[0m [31m50.5 MB/s[0m eta [36m0:00:00[0m00:01[0m00:01[0m
+    [?25hRequirement already satisfied: numpy>=1.17.3 in /usr/local/lib/python3.8/site-packages (from scikit-learn) (1.23.5)
     Collecting threadpoolctl>=2.0.0
       Downloading threadpoolctl-3.1.0-py3-none-any.whl (14 kB)
     Collecting joblib>=1.1.1
       Downloading joblib-1.2.0-py3-none-any.whl (297 kB)
-    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 298.0/298.0 KB 24.6 MB/s eta 0:00:00
-    ent already satisfied: scipy>=1.3.2 in /usr/local/lib/python3.8/site-packages (from scikit-learn) (1.10.1)
+    [2K     [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m298.0/298.0 KB[0m [31m24.6 MB/s[0m eta [36m0:00:00[0m
+    [?25hRequirement already satisfied: scipy>=1.3.2 in /usr/local/lib/python3.8/site-packages (from scikit-learn) (1.10.1)
     Installing collected packages: threadpoolctl, joblib, scikit-learn
     Successfully installed joblib-1.2.0 scikit-learn-1.2.2 threadpoolctl-3.1.0
-    WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
-    WARNING: You are using pip version 22.0.4; however, version 23.1.2 is available.
-    You should consider upgrading via the '/usr/local/bin/python -m pip install --upgrade pip' command.
-:::
-:::
+    [33mWARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv[0m[33m
+    [0m[33mWARNING: You are using pip version 22.0.4; however, version 23.1.2 is available.
+    You should consider upgrading via the '/usr/local/bin/python -m pip install --upgrade pip' command.[0m[33m
+    [0m
 
-::: {.cell .code execution_count="3" execution="{\"iopub.execute_input\":\"2023-06-10T03:51:33.913969Z\",\"iopub.status.busy\":\"2023-06-10T03:51:33.913681Z\",\"iopub.status.idle\":\"2023-06-10T03:51:49.087342Z\",\"shell.execute_reply\":\"2023-06-10T03:51:49.086338Z\",\"shell.execute_reply.started\":\"2023-06-10T03:51:33.913941Z\"}" trusted="true"}
-``` python
+
+```python
 !pip install  plotly
 ```
 
-::: {.output .stream .stdout}
     Collecting plotly
       Downloading plotly-5.15.0-py2.py3-none-any.whl (15.5 MB)
-    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 15.5/15.5 MB 66.0 MB/s eta 0:00:0000:0100:01
-    ent already satisfied: packaging in /usr/local/lib/python3.8/site-packages (from plotly) (23.0)
+    [2K     [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m15.5/15.5 MB[0m [31m66.0 MB/s[0m eta [36m0:00:00[0m00:01[0m00:01[0m
+    [?25hRequirement already satisfied: packaging in /usr/local/lib/python3.8/site-packages (from plotly) (23.0)
     Requirement already satisfied: tenacity>=6.2.0 in /usr/local/lib/python3.8/site-packages (from plotly) (8.2.2)
     Installing collected packages: plotly
     Successfully installed plotly-5.15.0
-    WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
-    WARNING: You are using pip version 22.0.4; however, version 23.1.2 is available.
-    You should consider upgrading via the '/usr/local/bin/python -m pip install --upgrade pip' command.
-:::
-:::
+    [33mWARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv[0m[33m
+    [0m[33mWARNING: You are using pip version 22.0.4; however, version 23.1.2 is available.
+    You should consider upgrading via the '/usr/local/bin/python -m pip install --upgrade pip' command.[0m[33m
+    [0m
 
-::: {.cell .code execution_count="4" execution="{\"iopub.execute_input\":\"2023-06-10T03:51:49.089183Z\",\"iopub.status.busy\":\"2023-06-10T03:51:49.088715Z\",\"iopub.status.idle\":\"2023-06-10T03:52:31.123015Z\",\"shell.execute_reply\":\"2023-06-10T03:52:31.121791Z\",\"shell.execute_reply.started\":\"2023-06-10T03:51:49.089151Z\"}" trusted="true"}
-``` python
+
+```python
 import numpy as np
 import pandas as pd
 import tensorflow as tf
@@ -79,7 +54,6 @@ import plotly.graph_objects as go
 import tensorflow.keras.optimizers.schedules as schedules
 ```
 
-::: {.output .stream .stderr}
     D0610 03:52:21.196883462      14 config.cc:119]                        gRPC EXPERIMENT tcp_frame_size_tuning               OFF (default:OFF)
     D0610 03:52:21.196928195      14 config.cc:119]                        gRPC EXPERIMENT tcp_rcv_lowat                       OFF (default:OFF)
     D0610 03:52:21.196931984      14 config.cc:119]                        gRPC EXPERIMENT peer_state_based_framing            OFF (default:OFF)
@@ -116,11 +90,10 @@ import tensorflow.keras.optimizers.schedules as schedules
     I0610 03:52:21.208642985      14 socket_utils_common_posix.cc:408]     Disabling AF_INET6 sockets because ::1 is not available.
     I0610 03:52:21.228206861     253 socket_utils_common_posix.cc:337]     TCP_USER_TIMEOUT is available. TCP_USER_TIMEOUT will be used thereafter
     E0610 03:52:21.235728907     253 oauth2_credentials.cc:236]            oauth_fetch: UNKNOWN:C-ares status is not ARES_SUCCESS qtype=A name=metadata.google.internal. is_balancer=0: Domain name not found {created_time:"2023-06-10T03:52:21.2357118+00:00", grpc_status:2}
-:::
-:::
 
-::: {.cell .code execution_count="5" execution="{\"iopub.execute_input\":\"2023-06-10T03:52:31.126566Z\",\"iopub.status.busy\":\"2023-06-10T03:52:31.125773Z\",\"iopub.status.idle\":\"2023-06-10T03:52:31.168259Z\",\"shell.execute_reply\":\"2023-06-10T03:52:31.167522Z\",\"shell.execute_reply.started\":\"2023-06-10T03:52:31.126531Z\"}" trusted="true"}
-``` python
+
+
+```python
 #데이터 불러오기
 epochs=100
 rootPath="../input/plant-pathology-2020-fgvc7/"
@@ -133,11 +106,11 @@ submission = pd.read_csv(rootPath+result)
 testData = pd.read_csv(rootPath+test)
 trainData = pd.read_csv(rootPath+train)
 plusData=pd.read_csv("/kaggle/input/pluslabel/plus.csv")
-```
-:::
 
-::: {.cell .code execution_count="6" execution="{\"iopub.execute_input\":\"2023-06-10T03:52:31.169659Z\",\"iopub.status.busy\":\"2023-06-10T03:52:31.169302Z\",\"iopub.status.idle\":\"2023-06-10T03:52:31.174292Z\",\"shell.execute_reply\":\"2023-06-10T03:52:31.173438Z\",\"shell.execute_reply.started\":\"2023-06-10T03:52:31.169634Z\"}" trusted="true"}
-``` python
+```
+
+
+```python
 #데이터불러오는 함수
 def originPath(name):
     return rootPath + 'images/' + name + '.jpg'
@@ -145,10 +118,9 @@ def originPath(name):
 def plusPath(name):
     return "../input/plusdata/" + name + '.jpg'
 ```
-:::
 
-::: {.cell .code execution_count="7" execution="{\"iopub.execute_input\":\"2023-06-10T03:52:31.175696Z\",\"iopub.status.busy\":\"2023-06-10T03:52:31.175409Z\",\"iopub.status.idle\":\"2023-06-10T03:52:31.192151Z\",\"shell.execute_reply\":\"2023-06-10T03:52:31.191316Z\",\"shell.execute_reply.started\":\"2023-06-10T03:52:31.175671Z\"}" trusted="true"}
-``` python
+
+```python
 #데이터불러오는코드
 testPaths = testData.image_id.apply(originPath).values
 trainPaths = trainData.image_id.apply(originPath).values
@@ -157,57 +129,56 @@ trainLabels = np.float32(trainData.loc[:, 'healthy':'scab'].values)
 plusLabels = np.float32(plusData.loc[:, 'healthy':'scab'].values)
 trainPaths, validPaths, trainLabels, validLabels =train_test_split(trainPaths, trainLabels, test_size=0.15)
 ```
-:::
 
-::: {.cell .code execution_count="8" execution="{\"iopub.execute_input\":\"2023-06-10T03:52:31.193676Z\",\"iopub.status.busy\":\"2023-06-10T03:52:31.193346Z\",\"iopub.status.idle\":\"2023-06-10T03:52:31.205908Z\",\"shell.execute_reply\":\"2023-06-10T03:52:31.205151Z\",\"shell.execute_reply.started\":\"2023-06-10T03:52:31.193648Z\"}" trusted="true"}
-``` python
+
+```python
 #원래데이터에 추가 데이터 합치기
 trainLabels=np.concatenate((trainLabels,plusLabels))
 ```
-:::
 
-::: {.cell .code execution_count="9" execution="{\"iopub.execute_input\":\"2023-06-10T03:52:31.207224Z\",\"iopub.status.busy\":\"2023-06-10T03:52:31.206944Z\",\"iopub.status.idle\":\"2023-06-10T03:52:31.216919Z\",\"shell.execute_reply\":\"2023-06-10T03:52:31.216171Z\",\"shell.execute_reply.started\":\"2023-06-10T03:52:31.207200Z\"}" trusted="true"}
-``` python
+
+```python
 #원래데이터 경로에 추가경로 합치기
 trainPaths=np.concatenate((trainPaths,plusPaths))
 ```
-:::
 
-::: {.cell .code execution_count="10" execution="{\"iopub.execute_input\":\"2023-06-10T03:52:31.218318Z\",\"iopub.status.busy\":\"2023-06-10T03:52:31.218025Z\",\"iopub.status.idle\":\"2023-06-10T03:52:31.227715Z\",\"shell.execute_reply\":\"2023-06-10T03:52:31.226941Z\",\"shell.execute_reply.started\":\"2023-06-10T03:52:31.218295Z\"}" trusted="true"}
-``` python
+
+```python
 #2048 1365 3 데이터의 shape
 ```
-:::
 
-::: {.cell .code execution_count="11" execution="{\"iopub.execute_input\":\"2023-06-10T03:52:31.231483Z\",\"iopub.status.busy\":\"2023-06-10T03:52:31.231205Z\",\"iopub.status.idle\":\"2023-06-10T03:52:31.242873Z\",\"shell.execute_reply\":\"2023-06-10T03:52:31.242065Z\",\"shell.execute_reply.started\":\"2023-06-10T03:52:31.231459Z\"}" trusted="true"}
-``` python
+
+```python
 1365//4#데이터가 큼으로 비율대로 자르기
 ```
 
-::: {.output .execute_result execution_count="11"}
-    341
-:::
-:::
 
-::: {.cell .code execution_count="12" execution="{\"iopub.execute_input\":\"2023-06-10T03:52:31.244245Z\",\"iopub.status.busy\":\"2023-06-10T03:52:31.243947Z\",\"iopub.status.idle\":\"2023-06-10T03:52:31.253848Z\",\"shell.execute_reply\":\"2023-06-10T03:52:31.253048Z\",\"shell.execute_reply.started\":\"2023-06-10T03:52:31.244220Z\"}" trusted="true"}
-``` python
+
+
+    341
+
+
+
+
+```python
 trainLabels.shape
 ```
 
-::: {.output .execute_result execution_count="12"}
-    (2546, 4)
-:::
-:::
 
-::: {.cell .code execution_count="13" execution="{\"iopub.execute_input\":\"2023-06-10T03:52:31.255180Z\",\"iopub.status.busy\":\"2023-06-10T03:52:31.254880Z\",\"iopub.status.idle\":\"2023-06-10T03:52:31.263453Z\",\"shell.execute_reply\":\"2023-06-10T03:52:31.262652Z\",\"shell.execute_reply.started\":\"2023-06-10T03:52:31.255157Z\"}" trusted="true"}
-``` python
+
+
+    (2546, 4)
+
+
+
+
+```python
 height=341
 width=514
 ```
-:::
 
-::: {.cell .code execution_count="14" execution="{\"iopub.execute_input\":\"2023-06-10T03:52:31.264818Z\",\"iopub.status.busy\":\"2023-06-10T03:52:31.264534Z\",\"iopub.status.idle\":\"2023-06-10T03:52:31.274378Z\",\"shell.execute_reply\":\"2023-06-10T03:52:31.273569Z\",\"shell.execute_reply.started\":\"2023-06-10T03:52:31.264795Z\"}" trusted="true"}
-``` python
+
+```python
 #데이터 전처리 함수
 def dataPreprocessing(filename, label=None, image_size=(width, height)):
     image = tf.io.read_file(filename)
@@ -226,10 +197,9 @@ def dataAugment(image, label=None):
         return image
     return image, label
 ```
-:::
 
-::: {.cell .code execution_count="15" execution="{\"iopub.execute_input\":\"2023-06-10T03:52:31.275706Z\",\"iopub.status.busy\":\"2023-06-10T03:52:31.275443Z\",\"iopub.status.idle\":\"2023-06-10T03:52:41.429877Z\",\"shell.execute_reply\":\"2023-06-10T03:52:41.428999Z\",\"shell.execute_reply.started\":\"2023-06-10T03:52:31.275683Z\"}" trusted="true"}
-``` python
+
+```python
 #TPU설정
 AUTO = tf.data.experimental.AUTOTUNE
 tpu = tf.distribute.cluster_resolver.TPUClusterResolver()
@@ -241,131 +211,100 @@ strategy = tf.distribute.experimental.TPUStrategy(tpu)
 batchSize = 16 * strategy.num_replicas_in_sync
 ```
 
-::: {.output .stream .stdout}
     INFO:tensorflow:Deallocate tpu buffers before initializing tpu system.
     INFO:tensorflow:Initializing the TPU system: local
     INFO:tensorflow:Finished initializing TPU system.
-:::
 
-::: {.output .stream .stderr}
+
     WARNING:absl:`tf.distribute.experimental.TPUStrategy` is deprecated, please use  the non experimental symbol `tf.distribute.TPUStrategy` instead.
-:::
 
-::: {.output .stream .stdout}
+
     INFO:tensorflow:Found TPU system:
-:::
 
-::: {.output .stream .stderr}
+
     INFO:tensorflow:Found TPU system:
-:::
 
-::: {.output .stream .stdout}
+
     INFO:tensorflow:*** Num TPU Cores: 8
-:::
 
-::: {.output .stream .stderr}
+
     INFO:tensorflow:*** Num TPU Cores: 8
-:::
 
-::: {.output .stream .stdout}
+
     INFO:tensorflow:*** Num TPU Workers: 1
-:::
 
-::: {.output .stream .stderr}
+
     INFO:tensorflow:*** Num TPU Workers: 1
-:::
 
-::: {.output .stream .stdout}
+
     INFO:tensorflow:*** Num TPU Cores Per Worker: 8
-:::
 
-::: {.output .stream .stderr}
+
     INFO:tensorflow:*** Num TPU Cores Per Worker: 8
-:::
 
-::: {.output .stream .stdout}
+
     INFO:tensorflow:*** Available Device: _DeviceAttributes(/job:localhost/replica:0/task:0/device:CPU:0, CPU, 0, 0)
-:::
 
-::: {.output .stream .stderr}
+
     INFO:tensorflow:*** Available Device: _DeviceAttributes(/job:localhost/replica:0/task:0/device:CPU:0, CPU, 0, 0)
-:::
 
-::: {.output .stream .stdout}
+
     INFO:tensorflow:*** Available Device: _DeviceAttributes(/job:localhost/replica:0/task:0/device:TPU:0, TPU, 0, 0)
-:::
 
-::: {.output .stream .stderr}
+
     INFO:tensorflow:*** Available Device: _DeviceAttributes(/job:localhost/replica:0/task:0/device:TPU:0, TPU, 0, 0)
-:::
 
-::: {.output .stream .stdout}
+
     INFO:tensorflow:*** Available Device: _DeviceAttributes(/job:localhost/replica:0/task:0/device:TPU:1, TPU, 0, 0)
-:::
 
-::: {.output .stream .stderr}
+
     INFO:tensorflow:*** Available Device: _DeviceAttributes(/job:localhost/replica:0/task:0/device:TPU:1, TPU, 0, 0)
-:::
 
-::: {.output .stream .stdout}
+
     INFO:tensorflow:*** Available Device: _DeviceAttributes(/job:localhost/replica:0/task:0/device:TPU:2, TPU, 0, 0)
-:::
 
-::: {.output .stream .stderr}
+
     INFO:tensorflow:*** Available Device: _DeviceAttributes(/job:localhost/replica:0/task:0/device:TPU:2, TPU, 0, 0)
-:::
 
-::: {.output .stream .stdout}
+
     INFO:tensorflow:*** Available Device: _DeviceAttributes(/job:localhost/replica:0/task:0/device:TPU:3, TPU, 0, 0)
-:::
 
-::: {.output .stream .stderr}
+
     INFO:tensorflow:*** Available Device: _DeviceAttributes(/job:localhost/replica:0/task:0/device:TPU:3, TPU, 0, 0)
-:::
 
-::: {.output .stream .stdout}
+
     INFO:tensorflow:*** Available Device: _DeviceAttributes(/job:localhost/replica:0/task:0/device:TPU:4, TPU, 0, 0)
-:::
 
-::: {.output .stream .stderr}
+
     INFO:tensorflow:*** Available Device: _DeviceAttributes(/job:localhost/replica:0/task:0/device:TPU:4, TPU, 0, 0)
-:::
 
-::: {.output .stream .stdout}
+
     INFO:tensorflow:*** Available Device: _DeviceAttributes(/job:localhost/replica:0/task:0/device:TPU:5, TPU, 0, 0)
-:::
 
-::: {.output .stream .stderr}
+
     INFO:tensorflow:*** Available Device: _DeviceAttributes(/job:localhost/replica:0/task:0/device:TPU:5, TPU, 0, 0)
-:::
 
-::: {.output .stream .stdout}
+
     INFO:tensorflow:*** Available Device: _DeviceAttributes(/job:localhost/replica:0/task:0/device:TPU:6, TPU, 0, 0)
-:::
 
-::: {.output .stream .stderr}
+
     INFO:tensorflow:*** Available Device: _DeviceAttributes(/job:localhost/replica:0/task:0/device:TPU:6, TPU, 0, 0)
-:::
 
-::: {.output .stream .stdout}
+
     INFO:tensorflow:*** Available Device: _DeviceAttributes(/job:localhost/replica:0/task:0/device:TPU:7, TPU, 0, 0)
-:::
 
-::: {.output .stream .stderr}
+
     INFO:tensorflow:*** Available Device: _DeviceAttributes(/job:localhost/replica:0/task:0/device:TPU:7, TPU, 0, 0)
-:::
 
-::: {.output .stream .stdout}
+
     INFO:tensorflow:*** Available Device: _DeviceAttributes(/job:localhost/replica:0/task:0/device:TPU_SYSTEM:0, TPU_SYSTEM, 0, 0)
-:::
 
-::: {.output .stream .stderr}
+
     INFO:tensorflow:*** Available Device: _DeviceAttributes(/job:localhost/replica:0/task:0/device:TPU_SYSTEM:0, TPU_SYSTEM, 0, 0)
-:::
-:::
 
-::: {.cell .code execution_count="16" execution="{\"iopub.execute_input\":\"2023-06-10T03:52:41.431280Z\",\"iopub.status.busy\":\"2023-06-10T03:52:41.431007Z\",\"iopub.status.idle\":\"2023-06-10T03:52:41.728398Z\",\"shell.execute_reply\":\"2023-06-10T03:52:41.727318Z\",\"shell.execute_reply.started\":\"2023-06-10T03:52:41.431256Z\"}" trusted="true"}
-``` python
+
+
+```python
 #이미지 불러옴
 trainDataset = (
     tf.data.Dataset
@@ -393,11 +332,11 @@ testDataset = (
     .map(dataPreprocessing, num_parallel_calls=AUTO)
     .batch(batchSize)
 )
-```
-:::
 
-::: {.cell .code execution_count="17" execution="{\"iopub.execute_input\":\"2023-06-10T03:52:41.729997Z\",\"iopub.status.busy\":\"2023-06-10T03:52:41.729672Z\",\"iopub.status.idle\":\"2023-06-10T03:52:41.740599Z\",\"shell.execute_reply\":\"2023-06-10T03:52:41.739596Z\",\"shell.execute_reply.started\":\"2023-06-10T03:52:41.729962Z\"}" trusted="true"}
-``` python
+```
+
+
+```python
 from tensorflow.keras.models import clone_model
 class Combination():
     
@@ -438,30 +377,27 @@ class Combination():
                     validation_data=validDataset)
         return history
 ```
-:::
 
-::: {.cell .code execution_count="18" execution="{\"iopub.execute_input\":\"2023-06-10T03:52:41.742235Z\",\"iopub.status.busy\":\"2023-06-10T03:52:41.741779Z\",\"iopub.status.idle\":\"2023-06-10T03:52:41.764617Z\",\"shell.execute_reply\":\"2023-06-10T03:52:41.763572Z\",\"shell.execute_reply.started\":\"2023-06-10T03:52:41.742205Z\"}" trusted="true"}
-``` python
+
+```python
 class Model:
     def __init__(self):
         pass
     def getModel():
         pass
 ```
-:::
 
-::: {.cell .code execution_count="19" execution="{\"iopub.execute_input\":\"2023-06-10T03:52:41.766246Z\",\"iopub.status.busy\":\"2023-06-10T03:52:41.765892Z\",\"iopub.status.idle\":\"2023-06-10T03:52:41.785530Z\",\"shell.execute_reply\":\"2023-06-10T03:52:41.784531Z\",\"shell.execute_reply.started\":\"2023-06-10T03:52:41.766216Z\"}" trusted="true"}
-``` python
+
+```python
 class Optimizer:
     def __init__(self):
         pass
     def getOptimizer():
         pass
 ```
-:::
 
-::: {.cell .code execution_count="20" execution="{\"iopub.execute_input\":\"2023-06-10T03:52:41.787138Z\",\"iopub.status.busy\":\"2023-06-10T03:52:41.786703Z\",\"iopub.status.idle\":\"2023-06-10T03:52:41.807839Z\",\"shell.execute_reply\":\"2023-06-10T03:52:41.806946Z\",\"shell.execute_reply.started\":\"2023-06-10T03:52:41.787106Z\"}" trusted="true"}
-``` python
+
+```python
 #모델 불러오기
 from tensorflow.keras.applications import VGG16
 from tensorflow.keras.applications import VGG19
@@ -473,10 +409,9 @@ from tensorflow.keras.applications import ResNet50V2
 from tensorflow.keras.applications import ResNet101V2
 from tensorflow.keras.applications import ResNet152V2
 ```
-:::
 
-::: {.cell .code execution_count="21" execution="{\"iopub.execute_input\":\"2023-06-10T03:52:41.809214Z\",\"iopub.status.busy\":\"2023-06-10T03:52:41.808917Z\",\"iopub.status.idle\":\"2023-06-10T03:52:41.824815Z\",\"shell.execute_reply\":\"2023-06-10T03:52:41.823933Z\",\"shell.execute_reply.started\":\"2023-06-10T03:52:41.809188Z\"}" trusted="true"}
-``` python
+
+```python
 class Vgg16(Model):
     def __init__(self):
         with strategy.scope():    
@@ -493,10 +428,9 @@ class Vgg16(Model):
         return self.Model
     
 ```
-:::
 
-::: {.cell .code execution_count="22" execution="{\"iopub.execute_input\":\"2023-06-10T03:52:41.826235Z\",\"iopub.status.busy\":\"2023-06-10T03:52:41.825933Z\",\"iopub.status.idle\":\"2023-06-10T03:52:41.851750Z\",\"shell.execute_reply\":\"2023-06-10T03:52:41.850870Z\",\"shell.execute_reply.started\":\"2023-06-10T03:52:41.826209Z\"}" trusted="true"}
-``` python
+
+```python
 class Vgg19(Model):
     def __init__(self):
         with strategy.scope():    
@@ -511,10 +445,9 @@ class Vgg19(Model):
         return self.Model
     
 ```
-:::
 
-::: {.cell .code execution_count="23" execution="{\"iopub.execute_input\":\"2023-06-10T03:52:41.853078Z\",\"iopub.status.busy\":\"2023-06-10T03:52:41.852773Z\",\"iopub.status.idle\":\"2023-06-10T03:52:41.874256Z\",\"shell.execute_reply\":\"2023-06-10T03:52:41.873375Z\",\"shell.execute_reply.started\":\"2023-06-10T03:52:41.853052Z\"}" trusted="true"}
-``` python
+
+```python
 class Inceptionv3(Model):
     def __init__(self):
         with strategy.scope():    
@@ -530,10 +463,9 @@ class Inceptionv3(Model):
         return self.Model
     
 ```
-:::
 
-::: {.cell .code execution_count="24" execution="{\"iopub.execute_input\":\"2023-06-10T03:52:41.875887Z\",\"iopub.status.busy\":\"2023-06-10T03:52:41.875357Z\",\"iopub.status.idle\":\"2023-06-10T03:52:41.900866Z\",\"shell.execute_reply\":\"2023-06-10T03:52:41.899979Z\",\"shell.execute_reply.started\":\"2023-06-10T03:52:41.875862Z\"}" trusted="true"}
-``` python
+
+```python
 class Resnet50(Model):
     def __init__(self):
         with strategy.scope():    
@@ -549,10 +481,9 @@ class Resnet50(Model):
         return self.Model
     
 ```
-:::
 
-::: {.cell .code execution_count="25" execution="{\"iopub.execute_input\":\"2023-06-10T03:52:41.902270Z\",\"iopub.status.busy\":\"2023-06-10T03:52:41.901967Z\",\"iopub.status.idle\":\"2023-06-10T03:52:41.914022Z\",\"shell.execute_reply\":\"2023-06-10T03:52:41.913130Z\",\"shell.execute_reply.started\":\"2023-06-10T03:52:41.902245Z\"}" trusted="true"}
-``` python
+
+```python
 class Resnet101(Model):
     def __init__(self):
         with strategy.scope():    
@@ -568,10 +499,9 @@ class Resnet101(Model):
         return self.Model
     
 ```
-:::
 
-::: {.cell .code execution_count="26" execution="{\"iopub.execute_input\":\"2023-06-10T03:52:41.915409Z\",\"iopub.status.busy\":\"2023-06-10T03:52:41.915115Z\",\"iopub.status.idle\":\"2023-06-10T03:52:41.926578Z\",\"shell.execute_reply\":\"2023-06-10T03:52:41.925748Z\",\"shell.execute_reply.started\":\"2023-06-10T03:52:41.915384Z\"}" trusted="true"}
-``` python
+
+```python
 class Resnet152(Model):
     def __init__(self):
         with strategy.scope():    
@@ -587,10 +517,9 @@ class Resnet152(Model):
         return self.Model
     
 ```
-:::
 
-::: {.cell .code execution_count="27" execution="{\"iopub.execute_input\":\"2023-06-10T03:52:41.927873Z\",\"iopub.status.busy\":\"2023-06-10T03:52:41.927607Z\",\"iopub.status.idle\":\"2023-06-10T03:52:41.942923Z\",\"shell.execute_reply\":\"2023-06-10T03:52:41.941996Z\",\"shell.execute_reply.started\":\"2023-06-10T03:52:41.927850Z\"}" trusted="true"}
-``` python
+
+```python
 class Resnet50v2(Model):
     def __init__(self):
         with strategy.scope():    
@@ -605,10 +534,9 @@ class Resnet50v2(Model):
         return self.Model
     
 ```
-:::
 
-::: {.cell .code execution_count="28" execution="{\"iopub.execute_input\":\"2023-06-10T03:52:41.944457Z\",\"iopub.status.busy\":\"2023-06-10T03:52:41.944078Z\",\"iopub.status.idle\":\"2023-06-10T03:52:41.969279Z\",\"shell.execute_reply\":\"2023-06-10T03:52:41.968389Z\",\"shell.execute_reply.started\":\"2023-06-10T03:52:41.944431Z\"}" trusted="true"}
-``` python
+
+```python
 class Resnet101v2(Model):
     def __init__(self):
         with strategy.scope():    
@@ -624,10 +552,9 @@ class Resnet101v2(Model):
         return self.Model
     
 ```
-:::
 
-::: {.cell .code execution_count="29" execution="{\"iopub.execute_input\":\"2023-06-10T03:52:41.975565Z\",\"iopub.status.busy\":\"2023-06-10T03:52:41.975179Z\",\"iopub.status.idle\":\"2023-06-10T03:52:41.995763Z\",\"shell.execute_reply\":\"2023-06-10T03:52:41.994869Z\",\"shell.execute_reply.started\":\"2023-06-10T03:52:41.975541Z\"}" trusted="true"}
-``` python
+
+```python
 class Resnet152v2(Model):
     def __init__(self):
         with strategy.scope():    
@@ -644,28 +571,25 @@ class Resnet152v2(Model):
         return self.Model
     
 ```
-:::
 
-::: {.cell .code execution_count="30" execution="{\"iopub.execute_input\":\"2023-06-10T03:52:41.997094Z\",\"iopub.status.busy\":\"2023-06-10T03:52:41.996792Z\",\"iopub.status.idle\":\"2023-06-10T03:52:42.030665Z\",\"shell.execute_reply\":\"2023-06-10T03:52:42.029739Z\",\"shell.execute_reply.started\":\"2023-06-10T03:52:41.997068Z\"}" trusted="true"}
-``` python
+
+```python
 class SGD(Optimizer):
     def setSchedules(self,schedules):    
         self.Optim=tf.keras.optimizers.SGD(momentum=0.9,learning_rate=schedules)
         return self.Optim
 ```
-:::
 
-::: {.cell .code execution_count="31" execution="{\"iopub.execute_input\":\"2023-06-10T03:52:42.032106Z\",\"iopub.status.busy\":\"2023-06-10T03:52:42.031714Z\",\"iopub.status.idle\":\"2023-06-10T03:52:42.052718Z\",\"shell.execute_reply\":\"2023-06-10T03:52:42.051833Z\",\"shell.execute_reply.started\":\"2023-06-10T03:52:42.032080Z\"}" trusted="true"}
-``` python
+
+```python
 class Adagrad(Optimizer):
     def setSchedules(self,schedules):    
         self.Optim=tf.keras.optimizers.Adagrad(epsilon=1e-6,learning_rate=schedules)
         return self.Optim
 ```
-:::
 
-::: {.cell .code execution_count="32" execution="{\"iopub.execute_input\":\"2023-06-10T03:52:42.054173Z\",\"iopub.status.busy\":\"2023-06-10T03:52:42.053762Z\",\"iopub.status.idle\":\"2023-06-10T03:52:42.079943Z\",\"shell.execute_reply\":\"2023-06-10T03:52:42.079016Z\",\"shell.execute_reply.started\":\"2023-06-10T03:52:42.054146Z\"}" trusted="true"}
-``` python
+
+```python
 class RMSprop(Optimizer):
     def setSchedules(self,schedules):    
         self.Optim=tf.keras.optimizers.RMSprop(rho=0.9, epsilon=1e-06,learning_rate=schedules)
@@ -673,74 +597,64 @@ class RMSprop(Optimizer):
     
         
 ```
-:::
 
-::: {.cell .code execution_count="33" execution="{\"iopub.execute_input\":\"2023-06-10T03:52:42.081403Z\",\"iopub.status.busy\":\"2023-06-10T03:52:42.081028Z\",\"iopub.status.idle\":\"2023-06-10T03:52:42.101673Z\",\"shell.execute_reply\":\"2023-06-10T03:52:42.100793Z\",\"shell.execute_reply.started\":\"2023-06-10T03:52:42.081377Z\"}" trusted="true"}
-``` python
+
+```python
 class Adam(Optimizer):
     def setSchedules(self,schedules):    
         self.Optim=tf.keras.optimizers.Adam(beta_1=0.9, beta_2=0.999,learning_rate=schedules)
         return self.Optim
 ```
-:::
 
-::: {.cell .code execution_count="34" execution="{\"iopub.execute_input\":\"2023-06-10T03:52:42.103143Z\",\"iopub.status.busy\":\"2023-06-10T03:52:42.102757Z\",\"iopub.status.idle\":\"2023-06-10T03:52:42.119929Z\",\"shell.execute_reply\":\"2023-06-10T03:52:42.119088Z\",\"shell.execute_reply.started\":\"2023-06-10T03:52:42.103116Z\"}" trusted="true"}
-``` python
+
+```python
 # models={"Vgg16":Vgg16(),"Vgg19":Vgg19(),"Inceptionv3":Inceptionv3()\
 #         ,"Resnet50":Resnet50(),"Resnet101":Resnet101(),"Resnet152":Resnet152()\
 #         ,"Resnet50v2":Resnet50v2(),"Resnet101v2":Resnet101v2(),"Resnet152v2":Resnet152v2()}
 ```
-:::
 
-::: {.cell .code execution_count="35" execution="{\"iopub.execute_input\":\"2023-06-10T03:52:42.121365Z\",\"iopub.status.busy\":\"2023-06-10T03:52:42.120994Z\",\"iopub.status.idle\":\"2023-06-10T03:52:42.131762Z\",\"shell.execute_reply\":\"2023-06-10T03:52:42.130889Z\",\"shell.execute_reply.started\":\"2023-06-10T03:52:42.121339Z\"}" trusted="true"}
-``` python
+
+```python
 # optimizers={"SGD":SGD(),"Adagrad":Adagrad(),"RMSprop":RMSprop(),"Adam":Adam()}
 ```
-:::
 
-::: {.cell .code execution_count="36" execution="{\"iopub.execute_input\":\"2023-06-10T03:52:42.133210Z\",\"iopub.status.busy\":\"2023-06-10T03:52:42.132825Z\",\"iopub.status.idle\":\"2023-06-10T03:52:42.143112Z\",\"shell.execute_reply\":\"2023-06-10T03:52:42.142276Z\",\"shell.execute_reply.started\":\"2023-06-10T03:52:42.133183Z\"}" trusted="true"}
-``` python
+
+```python
 # learningRateSchedulers={"CosineDecay":schedules.CosineDecay(initial_learning_rate=0.001, decay_steps=1000, alpha=0.0)\
 #                        ,"CosineDecayRestarts":schedules.CosineDecayRestarts(initial_learning_rate=0.001, t_mul=2.0,m_mul=1.0,first_decay_steps=1000, alpha=0.001)\
 #                        ,"ExponentialDecay":schedules.ExponentialDecay(initial_learning_rate=0.01,decay_steps=50,decay_rate=0.96,staircase=True)\
 #                        ,"InverseTimeDecay":schedules.InverseTimeDecay(initial_learning_rate = 0.01,decay_steps = 1.0,decay_rate = 0.5)
 #                        }
 ```
-:::
 
-::: {.cell .code execution_count="37" execution="{\"iopub.execute_input\":\"2023-06-10T03:52:42.144518Z\",\"iopub.status.busy\":\"2023-06-10T03:52:42.144158Z\",\"iopub.status.idle\":\"2023-06-10T03:53:49.543546Z\",\"shell.execute_reply\":\"2023-06-10T03:53:49.542413Z\",\"shell.execute_reply.started\":\"2023-06-10T03:52:42.144492Z\"}" trusted="true"}
-``` python
+
+```python
 models={"Inceptionv3":Inceptionv3(),"Resnet101v2":Resnet101v2()}
 ```
 
-::: {.output .stream .stdout}
     Downloading data from https://storage.googleapis.com/tensorflow/keras-applications/inception_v3/inception_v3_weights_tf_dim_ordering_tf_kernels_notop.h5
     87910968/87910968 [==============================] - 1s 0us/step
     Downloading data from https://storage.googleapis.com/tensorflow/keras-applications/resnet/resnet101v2_weights_tf_dim_ordering_tf_kernels_notop.h5
     171317808/171317808 [==============================] - 1s 0us/step
-:::
-:::
 
-::: {.cell .code execution_count="38" execution="{\"iopub.execute_input\":\"2023-06-10T03:53:49.545140Z\",\"iopub.status.busy\":\"2023-06-10T03:53:49.544809Z\",\"iopub.status.idle\":\"2023-06-10T03:53:49.549715Z\",\"shell.execute_reply\":\"2023-06-10T03:53:49.548809Z\",\"shell.execute_reply.started\":\"2023-06-10T03:53:49.545112Z\"}" trusted="true"}
-``` python
+
+
+```python
 optimizers={"SGD":SGD()}
 ```
-:::
 
-::: {.cell .code execution_count="39" execution="{\"iopub.execute_input\":\"2023-06-10T03:53:49.551109Z\",\"iopub.status.busy\":\"2023-06-10T03:53:49.550791Z\",\"iopub.status.idle\":\"2023-06-10T03:53:49.561874Z\",\"shell.execute_reply\":\"2023-06-10T03:53:49.560866Z\",\"shell.execute_reply.started\":\"2023-06-10T03:53:49.551082Z\"}" trusted="true"}
-``` python
+
+```python
 learningRateSchedulers={"CosineDecayRestarts":schedules.CosineDecayRestarts(initial_learning_rate=0.001, t_mul=2.0,m_mul=1.0,first_decay_steps=1000, alpha=0.001)}
 ```
-:::
 
-::: {.cell .code execution_count="40" execution="{\"iopub.execute_input\":\"2023-06-10T03:53:49.563353Z\",\"iopub.status.busy\":\"2023-06-10T03:53:49.562970Z\",\"iopub.status.idle\":\"2023-06-10T03:53:49.573624Z\",\"shell.execute_reply\":\"2023-06-10T03:53:49.572621Z\",\"shell.execute_reply.started\":\"2023-06-10T03:53:49.563327Z\"}" trusted="true"}
-``` python
+
+```python
 combination=Combination()
 ```
-:::
 
-::: {.cell .code execution_count="41" execution="{\"iopub.execute_input\":\"2023-06-10T03:53:49.575048Z\",\"iopub.status.busy\":\"2023-06-10T03:53:49.574724Z\",\"iopub.status.idle\":\"2023-06-10T03:53:49.585917Z\",\"shell.execute_reply\":\"2023-06-10T03:53:49.585058Z\",\"shell.execute_reply.started\":\"2023-06-10T03:53:49.575022Z\"}" trusted="true"}
-``` python
+
+```python
 def display(training, validation, title,yTitle,epochs):     
         fig = go.Figure()
 
@@ -753,10 +667,9 @@ def display(training, validation, title,yTitle,epochs):
         fig.update_layout(title_text=title, yaxis_title=yTitle, xaxis_title="Epochs", template="plotly_dark")
         fig.show()
 ```
-:::
 
-::: {.cell .code execution_count="42" execution="{\"iopub.execute_input\":\"2023-06-10T03:53:49.587264Z\",\"iopub.status.busy\":\"2023-06-10T03:53:49.586968Z\",\"iopub.status.idle\":\"2023-06-10T03:53:49.598119Z\",\"shell.execute_reply\":\"2023-06-10T03:53:49.597266Z\",\"shell.execute_reply.started\":\"2023-06-10T03:53:49.587238Z\"}" trusted="true"}
-``` python
+
+```python
 
 def performanceCheck(epochs):
     for modelName,model in models.items():
@@ -775,14 +688,12 @@ def performanceCheck(epochs):
                 display(trainAcc,evalAcc,title+"Accuracy","Accuracy",epochs)
                 display(trainLoss,evalLoss,title+"Loss","Loss",epochs)
 ```
-:::
 
-::: {.cell .code execution_count="43" execution="{\"iopub.execute_input\":\"2023-06-10T03:53:49.599477Z\",\"iopub.status.busy\":\"2023-06-10T03:53:49.599167Z\",\"iopub.status.idle\":\"2023-06-10T04:07:32.725933Z\",\"shell.execute_reply\":\"2023-06-10T04:07:32.724614Z\",\"shell.execute_reply.started\":\"2023-06-10T03:53:49.599451Z\"}" trusted="true"}
-``` python
+
+```python
 performanceCheck(30)
 ```
 
-::: {.output .stream .stdout}
     Model: "sequential"
     _________________________________________________________________
      Layer (type)                Output Shape              Param #   
@@ -804,23 +715,18 @@ performanceCheck(30)
     None
     <keras.optimizers.sgd.SGD object at 0x7ef48c3a5430>
     Epoch 1/30
-:::
 
-::: {.output .stream .stderr}
+
     2023-06-10 03:54:09.216458: E tensorflow/core/grappler/optimizers/meta_optimizer.cc:954] model_pruner failed: INVALID_ARGUMENT: Graph does not contain terminal node AssignAddVariableOp.
     2023-06-10 03:54:09.830044: E tensorflow/core/grappler/optimizers/meta_optimizer.cc:954] model_pruner failed: INVALID_ARGUMENT: Graph does not contain terminal node AssignAddVariableOp.
-:::
 
-::: {.output .stream .stdout}
+
     19/19 [==============================] - ETA: 0s - loss: 1.3575 - categorical_accuracy: 0.3516
-:::
 
-::: {.output .stream .stderr}
     2023-06-10 03:55:23.514984: E tensorflow/core/grappler/optimizers/meta_optimizer.cc:954] model_pruner failed: INVALID_ARGUMENT: Graph does not contain terminal node AssignAddVariableOp.
     2023-06-10 03:55:23.832619: E tensorflow/core/grappler/optimizers/meta_optimizer.cc:954] model_pruner failed: INVALID_ARGUMENT: Graph does not contain terminal node AssignAddVariableOp.
-:::
 
-::: {.output .stream .stdout}
+
     19/19 [==============================] - 135s 3s/step - loss: 1.3575 - categorical_accuracy: 0.3516 - val_loss: 1.1679 - val_categorical_accuracy: 0.4745
     Epoch 2/30
     19/19 [==============================] - 10s 531ms/step - loss: 1.2332 - categorical_accuracy: 0.4823 - val_loss: 0.9829 - val_categorical_accuracy: 0.7336
@@ -880,33 +786,30 @@ performanceCheck(30)
     19/19 [==============================] - 10s 555ms/step - loss: 0.2174 - categorical_accuracy: 0.9309 - val_loss: 0.0985 - val_categorical_accuracy: 0.9745
     Epoch 30/30
     19/19 [==============================] - 10s 501ms/step - loss: 0.2251 - categorical_accuracy: 0.9235 - val_loss: 0.0990 - val_categorical_accuracy: 0.9745
-:::
 
-::: {.output .display_data}
-```{=html}
-        <script type="text/javascript">
-        window.PlotlyConfig = {MathJaxConfig: 'local'};
-        if (window.MathJax && window.MathJax.Hub && window.MathJax.Hub.Config) {window.MathJax.Hub.Config({SVG: {font: "STIX-Web"}});}
-        if (typeof require !== 'undefined') {
-        require.undef("plotly");
-        requirejs.config({
-            paths: {
-                'plotly': ['https://cdn.plot.ly/plotly-2.24.1.min']
-            }
-        });
-        require(['plotly'], function(Plotly) {
-            window._Plotly = Plotly;
-        });
-        }
-        </script>
-        
-```
-:::
 
-::: {.output .display_data}
-```{=html}
+
+<script type="text/javascript">
+window.PlotlyConfig = {MathJaxConfig: 'local'};
+if (window.MathJax && window.MathJax.Hub && window.MathJax.Hub.Config) {window.MathJax.Hub.Config({SVG: {font: "STIX-Web"}});}
+if (typeof require !== 'undefined') {
+require.undef("plotly");
+requirejs.config({
+    paths: {
+        'plotly': ['https://cdn.plot.ly/plotly-2.24.1.min']
+    }
+});
+require(['plotly'], function(Plotly) {
+    window._Plotly = Plotly;
+});
+}
+</script>
+
+
+
+
 <div>                            <div id="6fe0d990-7863-487c-b010-35a325054296" class="plotly-graph-div" style="height:525px; width:100%;"></div>            <script type="text/javascript">                require(["plotly"], function(Plotly) {                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("6fe0d990-7863-487c-b010-35a325054296")) {                    Plotly.newPlot(                        "6fe0d990-7863-487c-b010-35a325054296",                        [{"marker":{"color":"#dc143c"},"mode":"lines+markers","name":"Train","x":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30],"y":[0.3515625,0.48231908679008484,0.6188322305679321,0.7051809430122375,0.7495887875556946,0.7491776347160339,0.7775493264198303,0.8022204041481018,0.8038651347160339,0.8326480388641357,0.8408716917037964,0.8638980388641357,0.8499177694320679,0.8638980388641357,0.8733552694320679,0.8819901347160339,0.8869243264198303,0.8889802694320679,0.9017269611358643,0.8980262875556946,0.9025493264198303,0.9029605388641357,0.9144737124443054,0.9165295958518982,0.9198190569877625,0.9173519611358643,0.9288651347160339,0.9247533082962036,0.9309210777282715,0.9235197305679321],"type":"scatter"},{"marker":{"color":"#0080ff"},"mode":"lines+markers","name":"Validation","x":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30],"y":[0.47445255517959595,0.7335766553878784,0.8430656790733337,0.8430656790733337,0.8686131238937378,0.8795620203018188,0.8832116723060608,0.8868613243103027,0.9160584211349487,0.930656909942627,0.9270073175430298,0.9270073175430298,0.9416058659553528,0.956204354763031,0.9525547623634338,0.9525547623634338,0.959854006767273,0.956204354763031,0.959854006767273,0.9635036587715149,0.970802903175354,0.974452555179596,0.9671533107757568,0.974452555179596,0.970802903175354,0.970802903175354,0.974452555179596,0.970802903175354,0.974452555179596,0.974452555179596],"type":"scatter"}],                        {"template":{"data":{"barpolar":[{"marker":{"line":{"color":"rgb(17,17,17)","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"bar":[{"error_x":{"color":"#f2f5fa"},"error_y":{"color":"#f2f5fa"},"marker":{"line":{"color":"rgb(17,17,17)","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"carpet":[{"aaxis":{"endlinecolor":"#A2B1C6","gridcolor":"#506784","linecolor":"#506784","minorgridcolor":"#506784","startlinecolor":"#A2B1C6"},"baxis":{"endlinecolor":"#A2B1C6","gridcolor":"#506784","linecolor":"#506784","minorgridcolor":"#506784","startlinecolor":"#A2B1C6"},"type":"carpet"}],"choropleth":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"choropleth"}],"contourcarpet":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"contourcarpet"}],"contour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"contour"}],"heatmapgl":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"heatmapgl"}],"heatmap":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"heatmap"}],"histogram2dcontour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2dcontour"}],"histogram2d":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2d"}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"mesh3d":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"mesh3d"}],"parcoords":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"parcoords"}],"pie":[{"automargin":true,"type":"pie"}],"scatter3d":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatter3d"}],"scattercarpet":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattercarpet"}],"scattergeo":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergeo"}],"scattergl":[{"marker":{"line":{"color":"#283442"}},"type":"scattergl"}],"scattermapbox":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermapbox"}],"scatterpolargl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolargl"}],"scatterpolar":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolar"}],"scatter":[{"marker":{"line":{"color":"#283442"}},"type":"scatter"}],"scatterternary":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterternary"}],"surface":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"surface"}],"table":[{"cells":{"fill":{"color":"#506784"},"line":{"color":"rgb(17,17,17)"}},"header":{"fill":{"color":"#2a3f5f"},"line":{"color":"rgb(17,17,17)"}},"type":"table"}]},"layout":{"annotationdefaults":{"arrowcolor":"#f2f5fa","arrowhead":0,"arrowwidth":1},"autotypenumbers":"strict","coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]],"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]},"colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#f2f5fa"},"geo":{"bgcolor":"rgb(17,17,17)","lakecolor":"rgb(17,17,17)","landcolor":"rgb(17,17,17)","showlakes":true,"showland":true,"subunitcolor":"#506784"},"hoverlabel":{"align":"left"},"hovermode":"closest","mapbox":{"style":"dark"},"paper_bgcolor":"rgb(17,17,17)","plot_bgcolor":"rgb(17,17,17)","polar":{"angularaxis":{"gridcolor":"#506784","linecolor":"#506784","ticks":""},"bgcolor":"rgb(17,17,17)","radialaxis":{"gridcolor":"#506784","linecolor":"#506784","ticks":""}},"scene":{"xaxis":{"backgroundcolor":"rgb(17,17,17)","gridcolor":"#506784","gridwidth":2,"linecolor":"#506784","showbackground":true,"ticks":"","zerolinecolor":"#C8D4E3"},"yaxis":{"backgroundcolor":"rgb(17,17,17)","gridcolor":"#506784","gridwidth":2,"linecolor":"#506784","showbackground":true,"ticks":"","zerolinecolor":"#C8D4E3"},"zaxis":{"backgroundcolor":"rgb(17,17,17)","gridcolor":"#506784","gridwidth":2,"linecolor":"#506784","showbackground":true,"ticks":"","zerolinecolor":"#C8D4E3"}},"shapedefaults":{"line":{"color":"#f2f5fa"}},"sliderdefaults":{"bgcolor":"#C8D4E3","bordercolor":"rgb(17,17,17)","borderwidth":1,"tickwidth":0},"ternary":{"aaxis":{"gridcolor":"#506784","linecolor":"#506784","ticks":""},"baxis":{"gridcolor":"#506784","linecolor":"#506784","ticks":""},"bgcolor":"rgb(17,17,17)","caxis":{"gridcolor":"#506784","linecolor":"#506784","ticks":""}},"title":{"x":0.05},"updatemenudefaults":{"bgcolor":"#506784","borderwidth":0},"xaxis":{"automargin":true,"gridcolor":"#283442","linecolor":"#506784","ticks":"","title":{"standoff":15},"zerolinecolor":"#283442","zerolinewidth":2},"yaxis":{"automargin":true,"gridcolor":"#283442","linecolor":"#506784","ticks":"","title":{"standoff":15},"zerolinecolor":"#283442","zerolinewidth":2}}},"title":{"text":"Inceptionv3 SGD CosineDecayRestarts Accuracy"},"yaxis":{"title":{"text":"Accuracy"}},"xaxis":{"title":{"text":"Epochs"}}},                        {"responsive": true}                    ).then(function(){
-                            
+
 var gd = document.getElementById('6fe0d990-7863-487c-b010-35a325054296');
 var x = new MutationObserver(function (mutations, observer) {{
         var display = window.getComputedStyle(gd).display;
@@ -930,13 +833,11 @@ if (outputEl) {{
 }}
 
                         })                };                });            </script>        </div>
-```
-:::
 
-::: {.output .display_data}
-```{=html}
+
+
 <div>                            <div id="a96af8b6-32e8-45c5-bc35-15be97fde604" class="plotly-graph-div" style="height:525px; width:100%;"></div>            <script type="text/javascript">                require(["plotly"], function(Plotly) {                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("a96af8b6-32e8-45c5-bc35-15be97fde604")) {                    Plotly.newPlot(                        "a96af8b6-32e8-45c5-bc35-15be97fde604",                        [{"marker":{"color":"#dc143c"},"mode":"lines+markers","name":"Train","x":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30],"y":[1.3575106859207153,1.2331663370132446,1.0345261096954346,0.8397260904312134,0.6913638114929199,0.6822370886802673,0.6023992300033569,0.547330379486084,0.5513661503791809,0.48845401406288147,0.4490939676761627,0.41545918583869934,0.4388968348503113,0.40010377764701843,0.3650321066379547,0.35414913296699524,0.33142611384391785,0.3425161838531494,0.31060442328453064,0.318727046251297,0.2824431359767914,0.2925732135772705,0.2565165162086487,0.25715628266334534,0.24409067630767822,0.24641844630241394,0.2145344316959381,0.23012498021125793,0.2174161672592163,0.22507838904857635],"type":"scatter"},{"marker":{"color":"#0080ff"},"mode":"lines+markers","name":"Validation","x":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30],"y":[1.1679253578186035,0.9828733801841736,0.6806005835533142,0.5487240552902222,0.4938836693763733,0.4544224143028259,0.38849908113479614,0.3391016125679016,0.30741119384765625,0.25587499141693115,0.2385586053133011,0.21531255543231964,0.18177440762519836,0.17733722925186157,0.15967945754528046,0.1513497680425644,0.1356547474861145,0.13971903920173645,0.13396841287612915,0.13329678773880005,0.12119048088788986,0.11393376439809799,0.11045558005571365,0.1083131954073906,0.10455073416233063,0.1006166860461235,0.10219328850507736,0.09908106178045273,0.09853266924619675,0.09895877540111542],"type":"scatter"}],                        {"template":{"data":{"barpolar":[{"marker":{"line":{"color":"rgb(17,17,17)","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"bar":[{"error_x":{"color":"#f2f5fa"},"error_y":{"color":"#f2f5fa"},"marker":{"line":{"color":"rgb(17,17,17)","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"carpet":[{"aaxis":{"endlinecolor":"#A2B1C6","gridcolor":"#506784","linecolor":"#506784","minorgridcolor":"#506784","startlinecolor":"#A2B1C6"},"baxis":{"endlinecolor":"#A2B1C6","gridcolor":"#506784","linecolor":"#506784","minorgridcolor":"#506784","startlinecolor":"#A2B1C6"},"type":"carpet"}],"choropleth":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"choropleth"}],"contourcarpet":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"contourcarpet"}],"contour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"contour"}],"heatmapgl":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"heatmapgl"}],"heatmap":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"heatmap"}],"histogram2dcontour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2dcontour"}],"histogram2d":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2d"}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"mesh3d":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"mesh3d"}],"parcoords":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"parcoords"}],"pie":[{"automargin":true,"type":"pie"}],"scatter3d":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatter3d"}],"scattercarpet":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattercarpet"}],"scattergeo":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergeo"}],"scattergl":[{"marker":{"line":{"color":"#283442"}},"type":"scattergl"}],"scattermapbox":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermapbox"}],"scatterpolargl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolargl"}],"scatterpolar":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolar"}],"scatter":[{"marker":{"line":{"color":"#283442"}},"type":"scatter"}],"scatterternary":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterternary"}],"surface":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"surface"}],"table":[{"cells":{"fill":{"color":"#506784"},"line":{"color":"rgb(17,17,17)"}},"header":{"fill":{"color":"#2a3f5f"},"line":{"color":"rgb(17,17,17)"}},"type":"table"}]},"layout":{"annotationdefaults":{"arrowcolor":"#f2f5fa","arrowhead":0,"arrowwidth":1},"autotypenumbers":"strict","coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]],"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]},"colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#f2f5fa"},"geo":{"bgcolor":"rgb(17,17,17)","lakecolor":"rgb(17,17,17)","landcolor":"rgb(17,17,17)","showlakes":true,"showland":true,"subunitcolor":"#506784"},"hoverlabel":{"align":"left"},"hovermode":"closest","mapbox":{"style":"dark"},"paper_bgcolor":"rgb(17,17,17)","plot_bgcolor":"rgb(17,17,17)","polar":{"angularaxis":{"gridcolor":"#506784","linecolor":"#506784","ticks":""},"bgcolor":"rgb(17,17,17)","radialaxis":{"gridcolor":"#506784","linecolor":"#506784","ticks":""}},"scene":{"xaxis":{"backgroundcolor":"rgb(17,17,17)","gridcolor":"#506784","gridwidth":2,"linecolor":"#506784","showbackground":true,"ticks":"","zerolinecolor":"#C8D4E3"},"yaxis":{"backgroundcolor":"rgb(17,17,17)","gridcolor":"#506784","gridwidth":2,"linecolor":"#506784","showbackground":true,"ticks":"","zerolinecolor":"#C8D4E3"},"zaxis":{"backgroundcolor":"rgb(17,17,17)","gridcolor":"#506784","gridwidth":2,"linecolor":"#506784","showbackground":true,"ticks":"","zerolinecolor":"#C8D4E3"}},"shapedefaults":{"line":{"color":"#f2f5fa"}},"sliderdefaults":{"bgcolor":"#C8D4E3","bordercolor":"rgb(17,17,17)","borderwidth":1,"tickwidth":0},"ternary":{"aaxis":{"gridcolor":"#506784","linecolor":"#506784","ticks":""},"baxis":{"gridcolor":"#506784","linecolor":"#506784","ticks":""},"bgcolor":"rgb(17,17,17)","caxis":{"gridcolor":"#506784","linecolor":"#506784","ticks":""}},"title":{"x":0.05},"updatemenudefaults":{"bgcolor":"#506784","borderwidth":0},"xaxis":{"automargin":true,"gridcolor":"#283442","linecolor":"#506784","ticks":"","title":{"standoff":15},"zerolinecolor":"#283442","zerolinewidth":2},"yaxis":{"automargin":true,"gridcolor":"#283442","linecolor":"#506784","ticks":"","title":{"standoff":15},"zerolinecolor":"#283442","zerolinewidth":2}}},"title":{"text":"Inceptionv3 SGD CosineDecayRestarts Loss"},"yaxis":{"title":{"text":"Loss"}},"xaxis":{"title":{"text":"Epochs"}}},                        {"responsive": true}                    ).then(function(){
-                            
+
 var gd = document.getElementById('a96af8b6-32e8-45c5-bc35-15be97fde604');
 var x = new MutationObserver(function (mutations, observer) {{
         var display = window.getComputedStyle(gd).display;
@@ -960,10 +861,8 @@ if (outputEl) {{
 }}
 
                         })                };                });            </script>        </div>
-```
-:::
 
-::: {.output .stream .stdout}
+
     Model: "sequential_1"
     _________________________________________________________________
      Layer (type)                Output Shape              Param #   
@@ -985,23 +884,18 @@ if (outputEl) {{
     None
     <keras.optimizers.sgd.SGD object at 0x7ef48c2246d0>
     Epoch 1/30
-:::
 
-::: {.output .stream .stderr}
+
     2023-06-10 04:01:15.757060: E tensorflow/core/grappler/optimizers/meta_optimizer.cc:954] model_pruner failed: INVALID_ARGUMENT: Graph does not contain terminal node AssignAddVariableOp.
     2023-06-10 04:01:16.640682: E tensorflow/core/grappler/optimizers/meta_optimizer.cc:954] model_pruner failed: INVALID_ARGUMENT: Graph does not contain terminal node AssignAddVariableOp.
-:::
 
-::: {.output .stream .stdout}
+
     19/19 [==============================] - ETA: 0s - loss: 1.5281 - categorical_accuracy: 0.3104
-:::
 
-::: {.output .stream .stderr}
     2023-06-10 04:02:16.986371: E tensorflow/core/grappler/optimizers/meta_optimizer.cc:954] model_pruner failed: INVALID_ARGUMENT: Graph does not contain terminal node AssignAddVariableOp.
     2023-06-10 04:02:17.383824: E tensorflow/core/grappler/optimizers/meta_optimizer.cc:954] model_pruner failed: INVALID_ARGUMENT: Graph does not contain terminal node AssignAddVariableOp.
-:::
 
-::: {.output .stream .stdout}
+
     19/19 [==============================] - 112s 2s/step - loss: 1.5281 - categorical_accuracy: 0.3104 - val_loss: 1.2059 - val_categorical_accuracy: 0.4891
     Epoch 2/30
     19/19 [==============================] - 10s 548ms/step - loss: 1.2129 - categorical_accuracy: 0.4856 - val_loss: 0.9957 - val_categorical_accuracy: 0.7226
@@ -1061,12 +955,11 @@ if (outputEl) {{
     19/19 [==============================] - 10s 532ms/step - loss: 0.1216 - categorical_accuracy: 0.9622 - val_loss: 0.1054 - val_categorical_accuracy: 0.9599
     Epoch 30/30
     19/19 [==============================] - 10s 522ms/step - loss: 0.1112 - categorical_accuracy: 0.9683 - val_loss: 0.1004 - val_categorical_accuracy: 0.9708
-:::
 
-::: {.output .display_data}
-```{=html}
+
+
 <div>                            <div id="a8e07266-f9ea-49cb-92fa-b0e18a238e6e" class="plotly-graph-div" style="height:525px; width:100%;"></div>            <script type="text/javascript">                require(["plotly"], function(Plotly) {                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("a8e07266-f9ea-49cb-92fa-b0e18a238e6e")) {                    Plotly.newPlot(                        "a8e07266-f9ea-49cb-92fa-b0e18a238e6e",                        [{"marker":{"color":"#dc143c"},"mode":"lines+markers","name":"Train","x":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30],"y":[0.31044408679008484,0.4856085479259491,0.6369243264198303,0.7208059430122375,0.7574012875556946,0.7890625,0.8018091917037964,0.8194901347160339,0.8474506735801697,0.8527960777282715,0.8675987124443054,0.8807565569877625,0.8930920958518982,0.8943256735801697,0.9189966917037964,0.9152960777282715,0.9132401347160339,0.9288651347160339,0.9391447305679321,0.9300987124443054,0.9477795958518982,0.9370887875556946,0.9436677694320679,0.9527137875556946,0.953125,0.9551809430122375,0.9555920958518982,0.9518914222717285,0.9621710777282715,0.9683387875556946],"type":"scatter"},{"marker":{"color":"#0080ff"},"mode":"lines+markers","name":"Validation","x":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30],"y":[0.48905110359191895,0.7226277589797974,0.7919707894325256,0.8211678862571716,0.8394160866737366,0.8759124279022217,0.8941605687141418,0.9051094651222229,0.9014598727226257,0.9087591171264648,0.9051094651222229,0.9233576655387878,0.9233576655387878,0.9379562139511108,0.9416058659553528,0.9379562139511108,0.959854006767273,0.956204354763031,0.9489051103591919,0.9671533107757568,0.959854006767273,0.959854006767273,0.974452555179596,0.959854006767273,0.956204354763031,0.9635036587715149,0.956204354763031,0.956204354763031,0.959854006767273,0.970802903175354],"type":"scatter"}],                        {"template":{"data":{"barpolar":[{"marker":{"line":{"color":"rgb(17,17,17)","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"bar":[{"error_x":{"color":"#f2f5fa"},"error_y":{"color":"#f2f5fa"},"marker":{"line":{"color":"rgb(17,17,17)","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"carpet":[{"aaxis":{"endlinecolor":"#A2B1C6","gridcolor":"#506784","linecolor":"#506784","minorgridcolor":"#506784","startlinecolor":"#A2B1C6"},"baxis":{"endlinecolor":"#A2B1C6","gridcolor":"#506784","linecolor":"#506784","minorgridcolor":"#506784","startlinecolor":"#A2B1C6"},"type":"carpet"}],"choropleth":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"choropleth"}],"contourcarpet":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"contourcarpet"}],"contour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"contour"}],"heatmapgl":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"heatmapgl"}],"heatmap":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"heatmap"}],"histogram2dcontour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2dcontour"}],"histogram2d":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2d"}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"mesh3d":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"mesh3d"}],"parcoords":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"parcoords"}],"pie":[{"automargin":true,"type":"pie"}],"scatter3d":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatter3d"}],"scattercarpet":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattercarpet"}],"scattergeo":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergeo"}],"scattergl":[{"marker":{"line":{"color":"#283442"}},"type":"scattergl"}],"scattermapbox":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermapbox"}],"scatterpolargl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolargl"}],"scatterpolar":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolar"}],"scatter":[{"marker":{"line":{"color":"#283442"}},"type":"scatter"}],"scatterternary":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterternary"}],"surface":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"surface"}],"table":[{"cells":{"fill":{"color":"#506784"},"line":{"color":"rgb(17,17,17)"}},"header":{"fill":{"color":"#2a3f5f"},"line":{"color":"rgb(17,17,17)"}},"type":"table"}]},"layout":{"annotationdefaults":{"arrowcolor":"#f2f5fa","arrowhead":0,"arrowwidth":1},"autotypenumbers":"strict","coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]],"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]},"colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#f2f5fa"},"geo":{"bgcolor":"rgb(17,17,17)","lakecolor":"rgb(17,17,17)","landcolor":"rgb(17,17,17)","showlakes":true,"showland":true,"subunitcolor":"#506784"},"hoverlabel":{"align":"left"},"hovermode":"closest","mapbox":{"style":"dark"},"paper_bgcolor":"rgb(17,17,17)","plot_bgcolor":"rgb(17,17,17)","polar":{"angularaxis":{"gridcolor":"#506784","linecolor":"#506784","ticks":""},"bgcolor":"rgb(17,17,17)","radialaxis":{"gridcolor":"#506784","linecolor":"#506784","ticks":""}},"scene":{"xaxis":{"backgroundcolor":"rgb(17,17,17)","gridcolor":"#506784","gridwidth":2,"linecolor":"#506784","showbackground":true,"ticks":"","zerolinecolor":"#C8D4E3"},"yaxis":{"backgroundcolor":"rgb(17,17,17)","gridcolor":"#506784","gridwidth":2,"linecolor":"#506784","showbackground":true,"ticks":"","zerolinecolor":"#C8D4E3"},"zaxis":{"backgroundcolor":"rgb(17,17,17)","gridcolor":"#506784","gridwidth":2,"linecolor":"#506784","showbackground":true,"ticks":"","zerolinecolor":"#C8D4E3"}},"shapedefaults":{"line":{"color":"#f2f5fa"}},"sliderdefaults":{"bgcolor":"#C8D4E3","bordercolor":"rgb(17,17,17)","borderwidth":1,"tickwidth":0},"ternary":{"aaxis":{"gridcolor":"#506784","linecolor":"#506784","ticks":""},"baxis":{"gridcolor":"#506784","linecolor":"#506784","ticks":""},"bgcolor":"rgb(17,17,17)","caxis":{"gridcolor":"#506784","linecolor":"#506784","ticks":""}},"title":{"x":0.05},"updatemenudefaults":{"bgcolor":"#506784","borderwidth":0},"xaxis":{"automargin":true,"gridcolor":"#283442","linecolor":"#506784","ticks":"","title":{"standoff":15},"zerolinecolor":"#283442","zerolinewidth":2},"yaxis":{"automargin":true,"gridcolor":"#283442","linecolor":"#506784","ticks":"","title":{"standoff":15},"zerolinecolor":"#283442","zerolinewidth":2}}},"title":{"text":"Resnet101v2 SGD CosineDecayRestarts Accuracy"},"yaxis":{"title":{"text":"Accuracy"}},"xaxis":{"title":{"text":"Epochs"}}},                        {"responsive": true}                    ).then(function(){
-                            
+
 var gd = document.getElementById('a8e07266-f9ea-49cb-92fa-b0e18a238e6e');
 var x = new MutationObserver(function (mutations, observer) {{
         var display = window.getComputedStyle(gd).display;
@@ -1090,13 +983,11 @@ if (outputEl) {{
 }}
 
                         })                };                });            </script>        </div>
-```
-:::
 
-::: {.output .display_data}
-```{=html}
+
+
 <div>                            <div id="34d6882b-ff6b-411c-9cc8-7a20958b8655" class="plotly-graph-div" style="height:525px; width:100%;"></div>            <script type="text/javascript">                require(["plotly"], function(Plotly) {                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("34d6882b-ff6b-411c-9cc8-7a20958b8655")) {                    Plotly.newPlot(                        "34d6882b-ff6b-411c-9cc8-7a20958b8655",                        [{"marker":{"color":"#dc143c"},"mode":"lines+markers","name":"Train","x":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30],"y":[1.5280652046203613,1.2129074335098267,0.9516862630844116,0.7470691800117493,0.651993453502655,0.5773174166679382,0.5270390510559082,0.4898415207862854,0.437452107667923,0.4078429937362671,0.3783981204032898,0.330175518989563,0.315677672624588,0.30352556705474854,0.2636817991733551,0.2556808292865753,0.24983453750610352,0.21871855854988098,0.20512418448925018,0.20132355391979218,0.17470921576023102,0.18508148193359375,0.17033424973487854,0.16564537584781647,0.1551521271467209,0.13658924400806427,0.13446584343910217,0.14554090797901154,0.12157148867845535,0.11119449883699417],"type":"scatter"},{"marker":{"color":"#0080ff"},"mode":"lines+markers","name":"Validation","x":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30],"y":[1.2058583498001099,0.9956871271133423,0.6501286029815674,0.5837215185165405,0.5253880023956299,0.45312467217445374,0.3936689794063568,0.346596360206604,0.3108144700527191,0.23894824087619781,0.247593954205513,0.2020389884710312,0.21069413423538208,0.1564655750989914,0.1668286770582199,0.15022125840187073,0.13932716846466064,0.1293375939130783,0.12755922973155975,0.11726746708154678,0.11218534409999847,0.10919755697250366,0.11145524680614471,0.10799943655729294,0.1063525527715683,0.10660985112190247,0.10206755995750427,0.1139799952507019,0.10544601827859879,0.10044953972101212],"type":"scatter"}],                        {"template":{"data":{"barpolar":[{"marker":{"line":{"color":"rgb(17,17,17)","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"bar":[{"error_x":{"color":"#f2f5fa"},"error_y":{"color":"#f2f5fa"},"marker":{"line":{"color":"rgb(17,17,17)","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"carpet":[{"aaxis":{"endlinecolor":"#A2B1C6","gridcolor":"#506784","linecolor":"#506784","minorgridcolor":"#506784","startlinecolor":"#A2B1C6"},"baxis":{"endlinecolor":"#A2B1C6","gridcolor":"#506784","linecolor":"#506784","minorgridcolor":"#506784","startlinecolor":"#A2B1C6"},"type":"carpet"}],"choropleth":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"choropleth"}],"contourcarpet":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"contourcarpet"}],"contour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"contour"}],"heatmapgl":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"heatmapgl"}],"heatmap":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"heatmap"}],"histogram2dcontour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2dcontour"}],"histogram2d":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2d"}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"mesh3d":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"mesh3d"}],"parcoords":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"parcoords"}],"pie":[{"automargin":true,"type":"pie"}],"scatter3d":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatter3d"}],"scattercarpet":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattercarpet"}],"scattergeo":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergeo"}],"scattergl":[{"marker":{"line":{"color":"#283442"}},"type":"scattergl"}],"scattermapbox":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermapbox"}],"scatterpolargl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolargl"}],"scatterpolar":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolar"}],"scatter":[{"marker":{"line":{"color":"#283442"}},"type":"scatter"}],"scatterternary":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterternary"}],"surface":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"surface"}],"table":[{"cells":{"fill":{"color":"#506784"},"line":{"color":"rgb(17,17,17)"}},"header":{"fill":{"color":"#2a3f5f"},"line":{"color":"rgb(17,17,17)"}},"type":"table"}]},"layout":{"annotationdefaults":{"arrowcolor":"#f2f5fa","arrowhead":0,"arrowwidth":1},"autotypenumbers":"strict","coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]],"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]},"colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#f2f5fa"},"geo":{"bgcolor":"rgb(17,17,17)","lakecolor":"rgb(17,17,17)","landcolor":"rgb(17,17,17)","showlakes":true,"showland":true,"subunitcolor":"#506784"},"hoverlabel":{"align":"left"},"hovermode":"closest","mapbox":{"style":"dark"},"paper_bgcolor":"rgb(17,17,17)","plot_bgcolor":"rgb(17,17,17)","polar":{"angularaxis":{"gridcolor":"#506784","linecolor":"#506784","ticks":""},"bgcolor":"rgb(17,17,17)","radialaxis":{"gridcolor":"#506784","linecolor":"#506784","ticks":""}},"scene":{"xaxis":{"backgroundcolor":"rgb(17,17,17)","gridcolor":"#506784","gridwidth":2,"linecolor":"#506784","showbackground":true,"ticks":"","zerolinecolor":"#C8D4E3"},"yaxis":{"backgroundcolor":"rgb(17,17,17)","gridcolor":"#506784","gridwidth":2,"linecolor":"#506784","showbackground":true,"ticks":"","zerolinecolor":"#C8D4E3"},"zaxis":{"backgroundcolor":"rgb(17,17,17)","gridcolor":"#506784","gridwidth":2,"linecolor":"#506784","showbackground":true,"ticks":"","zerolinecolor":"#C8D4E3"}},"shapedefaults":{"line":{"color":"#f2f5fa"}},"sliderdefaults":{"bgcolor":"#C8D4E3","bordercolor":"rgb(17,17,17)","borderwidth":1,"tickwidth":0},"ternary":{"aaxis":{"gridcolor":"#506784","linecolor":"#506784","ticks":""},"baxis":{"gridcolor":"#506784","linecolor":"#506784","ticks":""},"bgcolor":"rgb(17,17,17)","caxis":{"gridcolor":"#506784","linecolor":"#506784","ticks":""}},"title":{"x":0.05},"updatemenudefaults":{"bgcolor":"#506784","borderwidth":0},"xaxis":{"automargin":true,"gridcolor":"#283442","linecolor":"#506784","ticks":"","title":{"standoff":15},"zerolinecolor":"#283442","zerolinewidth":2},"yaxis":{"automargin":true,"gridcolor":"#283442","linecolor":"#506784","ticks":"","title":{"standoff":15},"zerolinecolor":"#283442","zerolinewidth":2}}},"title":{"text":"Resnet101v2 SGD CosineDecayRestarts Loss"},"yaxis":{"title":{"text":"Loss"}},"xaxis":{"title":{"text":"Epochs"}}},                        {"responsive": true}                    ).then(function(){
-                            
+
 var gd = document.getElementById('34d6882b-ff6b-411c-9cc8-7a20958b8655');
 var x = new MutationObserver(function (mutations, observer) {{
         var display = window.getComputedStyle(gd).display;
@@ -1120,40 +1011,35 @@ if (outputEl) {{
 }}
 
                         })                };                });            </script>        </div>
-```
-:::
-:::
 
-::: {.cell .code execution_count="46" execution="{\"iopub.execute_input\":\"2023-06-10T04:14:21.077993Z\",\"iopub.status.busy\":\"2023-06-10T04:14:21.076967Z\",\"iopub.status.idle\":\"2023-06-10T04:14:21.082389Z\",\"shell.execute_reply\":\"2023-06-10T04:14:21.081260Z\",\"shell.execute_reply.started\":\"2023-06-10T04:14:21.077954Z\"}" trusted="true"}
-``` python
+
+
+```python
 model=models['Resnet101v2'].getModel()
 ```
-:::
 
-::: {.cell .code execution_count="47" execution="{\"iopub.execute_input\":\"2023-06-10T04:14:22.874804Z\",\"iopub.status.busy\":\"2023-06-10T04:14:22.874038Z\",\"iopub.status.idle\":\"2023-06-10T04:14:27.309402Z\",\"shell.execute_reply\":\"2023-06-10T04:14:27.308106Z\",\"shell.execute_reply.started\":\"2023-06-10T04:14:22.874766Z\"}" trusted="true"}
-``` python
+
+```python
 testModel=clone_model(model)
 ```
-:::
 
-::: {.cell .code execution_count="48" execution="{\"iopub.execute_input\":\"2023-06-10T04:14:27.311490Z\",\"iopub.status.busy\":\"2023-06-10T04:14:27.311187Z\",\"iopub.status.idle\":\"2023-06-10T04:16:45.896986Z\",\"shell.execute_reply\":\"2023-06-10T04:16:45.895299Z\",\"shell.execute_reply.started\":\"2023-06-10T04:14:27.311462Z\"}" trusted="true"}
-``` python
+
+```python
 y=testModel.predict(testDataset)
 ```
 
-::: {.output .stream .stdout}
     15/15 [==============================] - 139s 9s/step
-:::
-:::
 
-::: {.cell .code execution_count="49" execution="{\"iopub.execute_input\":\"2023-06-10T04:16:45.899368Z\",\"iopub.status.busy\":\"2023-06-10T04:16:45.899020Z\",\"iopub.status.idle\":\"2023-06-10T04:16:45.930005Z\",\"shell.execute_reply\":\"2023-06-10T04:16:45.928949Z\",\"shell.execute_reply.started\":\"2023-06-10T04:16:45.899337Z\"}" trusted="true"}
-``` python
+
+
+```python
 submission=pd.read_csv("/kaggle/input/plant-pathology-2020-fgvc7/sample_submission.csv")
 submission
 ```
 
-::: {.output .execute_result execution_count="49"}
-```{=html}
+
+
+
 <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1272,12 +1158,11 @@ submission
 </table>
 <p>1821 rows × 5 columns</p>
 </div>
-```
-:::
-:::
 
-::: {.cell .code execution_count="50" execution="{\"iopub.execute_input\":\"2023-06-10T04:16:45.932196Z\",\"iopub.status.busy\":\"2023-06-10T04:16:45.931912Z\",\"iopub.status.idle\":\"2023-06-10T04:16:45.938122Z\",\"shell.execute_reply\":\"2023-06-10T04:16:45.937035Z\",\"shell.execute_reply.started\":\"2023-06-10T04:16:45.932172Z\"}" trusted="true"}
-``` python
+
+
+
+```python
 result=pd.DataFrame({
     "image_id":submission['image_id'],
     "healthy":y[:,0],
@@ -1286,16 +1171,13 @@ result=pd.DataFrame({
     "scab":y[:,3]
 })
 ```
-:::
 
-::: {.cell .code execution_count="52" execution="{\"iopub.execute_input\":\"2023-06-10T04:18:42.506353Z\",\"iopub.status.busy\":\"2023-06-10T04:18:42.505918Z\",\"iopub.status.idle\":\"2023-06-10T04:18:42.523989Z\",\"shell.execute_reply\":\"2023-06-10T04:18:42.522381Z\",\"shell.execute_reply.started\":\"2023-06-10T04:18:42.506323Z\"}" trusted="true"}
-``` python
+
+```python
 result.to_csv("submission.csv",index=False)
 ```
-:::
 
-::: {.cell .code}
-``` python
+
+```python
+
 ```
-:::
-
