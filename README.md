@@ -21,7 +21,8 @@
 ![image](https://github.com/creepereye1204/Disease-classifier-for-apple-tree-leaves/assets/112455232/c998b100-5795-4955-8bf8-dc9cfa82a58b)
 ![image](https://github.com/creepereye1204/Disease-classifier-for-apple-tree-leaves/assets/112455232/4ab167a4-1713-491e-b9ca-93f2a761b5f2)
 ![image](https://github.com/creepereye1204/Disease-classifier-for-apple-tree-leaves/assets/112455232/efc3229c-4aaf-4bd7-acaa-6ea0ad0cb8d9)
-![image](https://github.com/creepereye1204/Disease-classifier-for-apple-tree-leaves/assets/112455232/e0ad51ae-db9f-480e-9c46-c24a68391f08)
+![image](https://github.com/creepereye1204/Disease-classifier-for-apple-tree-leaves/assets/112455232/c5c6c504-675a-48d6-a381-f14dadac116d)
+
 
 
 
