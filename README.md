@@ -1,6 +1,4 @@
-# MachineLearningHomeWork
-Machine Learning HomeWork
+# Disease classifier for apple tree leaves
 
-안녕하세요 교수님
-머신러닝 1조 입니다.
-실행결과 그래프는 result.zip에 있습니다.
+
+식물의 질병 판단기
