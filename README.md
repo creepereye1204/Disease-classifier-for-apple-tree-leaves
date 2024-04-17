@@ -1,7 +1,23 @@
 # Disease classifier for apple tree leaves
 사과나무 잎의 질병 분류기입니다.
 
-# result.zip에는 실행 결과가 사과나무 잎의 질병 분류기. ipynb에는 코드가 있습니다.
+# result.zip에는 loss와 Acc의 결과가 있습니다.
+
+
+문제정의&해결책 서술![image](https://github.com/creepereye1204/Disease-classifier-for-apple-tree-leaves/assets/112455232/de65f4ba-8e55-442e-a41a-cb328599397a)
+![image](https://github.com/creepereye1204/Disease-classifier-for-apple-tree-leaves/assets/112455232/38796d3d-7869-401e-8c52-ff9cdce65d09)
+![image](https://github.com/creepereye1204/Disease-classifier-for-apple-tree-leaves/assets/112455232/b74a4f0a-fa26-469b-aa34-3500b3e8d8b8)
+![image](https://github.com/creepereye1204/Disease-classifier-for-apple-tree-leaves/assets/112455232/d096e6b5-b135-493e-80f7-ba3797d7e894)
+![image](https://github.com/creepereye1204/Disease-classifier-for-apple-tree-leaves/assets/112455232/e289c111-2f0e-4355-90fd-62be0976d9ac)
+![image](https://github.com/creepereye1204/Disease-classifier-for-apple-tree-leaves/assets/112455232/5285f7c9-c30c-4d6a-b674-9254cb8f0238)
+
+
+
+
+
+
+
+
 ```python
 !pip install -U scikit-learn
 ```
